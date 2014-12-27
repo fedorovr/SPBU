@@ -15,10 +15,12 @@ if "%errorInBuilding%"=="true" goto :end
 
 call %folder%\checkBuild.bat
 
+call %folder%\runTests.bat
+
 :end
 
 call %folder%\mailSender.bat
 
 call %folder%\finalClean.bat
 
-echo Build Finished
+echo Build Finished.

@@ -12,6 +12,7 @@ if %errorInCloning%==true (
 if %errorInBuilding%==true (
   set emailBody=An error occurred during building solution.
   set emailSubject=%emailSubject% [Error in build solution]
+  set emailFile=%MSBuildlog%
  ) 
  
 if %errorInChecking%==true (
@@ -19,6 +20,12 @@ if %errorInChecking%==true (
   set emailSubject=%emailSubject% [File not found]
  )  
 
+if %errorInTesting%==true (
+  set emailBody=An error occurred during testing the library.
+  set emailSubject=%emailSubject% [Error in testing]
+  set emailFile=%testsErrorsLog%
+ )
+ 
 blat -to "%eMailGetter%" -subject "%emailSubject%" -body "%emailBody%" -attach %emailFile%>nul 2>%sendingErrors%
 
 if errorlevel 1 goto :error

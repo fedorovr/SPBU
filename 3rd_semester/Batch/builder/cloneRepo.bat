@@ -1,3 +1,4 @@
+@echo off
 if "%builderStart%"=="" goto :EOF
 
 echo Cloning repo...

@@ -3,7 +3,7 @@ if "%builderStart%"=="" goto :EOF
 
 echo Building solution...
 
-MSBuild %solution%>%MSBuildlog%
+%PathMSBuild%\MSBuild.exe %solution%>%MSBuildlog%
 
 if errorlevel 1 goto :error
 
