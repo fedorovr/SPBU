@@ -1,1 +1,3 @@
-Geometry.exe
+Geometry\Geometry\bin\Debug\Geometry.exe
+Geometry\GeometryLib\bin\Debug\GeometryLib.dll
+Geometry\GeometrySolverTests\bin\Debug\GeometrySolverTests.dll

@@ -10,7 +10,6 @@ set PathVSTest="E:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\
 
 set gitURL=https://github.com/fedorovr/%repoName%
 
-set buildFolder=%repoName%\%solutionName%\bin\Debug
 set solution=%repoName%\%solutionName%.sln
 set testsLocation=%repoName%\%testsName%\bin\Debug
 
@@ -34,4 +33,4 @@ set missingFile=
 set emailBody=Successful build the solution.
 set emailFile=%logMSBuild%
 set emailSubject=Auto-building solution: %solutionName%
-set eMailGetter=Roman2x@yandex.ru
+set eMailGetter=example@gmail.com
