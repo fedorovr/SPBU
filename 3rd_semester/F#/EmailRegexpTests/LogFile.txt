@@ -1,0 +1,3 @@
+DebuggerOnEnterDesignMode time:11.12.2014 15:28:48
+DebuggerOnEnterDesignMode time:11.12.2014 15:31:43
+DebuggerOnEnterDesignMode time:11.12.2014 15:39:43
