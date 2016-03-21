@@ -1,14 +1,18 @@
+#encoding: UTF-8
+
 from datetime import datetime, timedelta
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
 from sklearn.cluster import MiniBatchKMeans
+from sklearn.metrics import silhouette_score
 
 # xl = pd.ExcelFile("m1.xlsx")
 # df = xl.parse('Sheet1')
 
-df = pd.read_csv('old_petrovsky_11.csv')
+df = pd.read_csv('old_petrovsky_11_cleared.csv')
 
 report_df = pd.read_csv('report.csv')
 
@@ -26,7 +30,7 @@ to_time = get_time("20.10.2015 15.00.00")
 
 
 def create_aligned_path(data, start_time, end_time, interval):
-    lacs, times = data["LAC"], data["Время вызова"]
+    lacs, times = data["LAC"], data["Call time"]
     step = timedelta(minutes=interval)
     current_time = start_time
     acc = []
@@ -45,12 +49,12 @@ def between_time(x):
 # Group people by code - unique number for every user
 # Collect all LACs (base stations) for every user in a list
 
-df1 = df[df['Время вызова'].apply(between_time)]
+df1 = df[df['Call time'].apply(between_time)]
 df2 = df1.dropna(subset=['LAC'])
 
-lacs = df2.groupby('Код')['LAC'].apply(lambda x: x.tolist())
+lacs = df2.groupby('Code')['LAC'].apply(lambda x: x.tolist())
 # The same with all times for every LAC
-times = df2.groupby('Код')['Время вызова'].apply(lambda x: x.tolist())  # TODO Is double groupby bad?
+times = df2.groupby('Code')['Call time'].apply(lambda x: x.tolist())  # TODO Is double groupby bad?
 
 # Join 2 series to dataframe on Code
 data = pd.concat([lacs, times], axis=1).reset_index()
@@ -80,10 +84,18 @@ def split_timespan(chunk_count):
 
 coord_list = data['Path'].apply(get_coords).tolist()
 
-rng = np.random.RandomState(0)
-kmeans = MiniBatchKMeans(n_clusters=2, random_state=rng, verbose=True)
+clusters_range = np.arange(2, 20)
+clustering_quality = []
+for cluster_count in clusters_range:
+    kmeans = MiniBatchKMeans(n_clusters=cluster_count)
+    kmeans.partial_fit(coord_list)
+#    for i, patch in enumerate(kmeans.cluster_centers_):
+#        print("Cluster #" + str(i) + ": " + str(patch))
+    clustering_quality.append(silhouette_score(np.array(coord_list), kmeans.labels_))
 
-kmeans.partial_fit(coord_list)
+clustering_quality = np.array(clustering_quality)
 
-for i, patch in enumerate(kmeans.cluster_centers_):
-    print("Cluster #" + str(i) + ": " + str(patch))
+plt.plot(clusters_range, clustering_quality)
+plt.xlabel('Number of clusters')
+plt.ylabel('Quality (Silhoette coefficient)')
+plt.savefig('quality.png')
