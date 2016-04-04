@@ -1,14 +1,9 @@
 #encoding: UTF-8
 from datetime import datetime, timedelta
 
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pickle
-
-from sklearn.cluster import MiniBatchKMeans
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
 
 
 df = pd.read_csv('petrovsky_11.csv', nrows=10000)
@@ -85,33 +80,5 @@ def split_timespan(chunk_count):
 
 
 coord_list = data['Path'].apply(get_coords).tolist()
-
 with open('processed_table', 'wb') as f:
     pickle.dump(coord_list, f)
-
-coord_list = []
-
-with open('processed_table', 'rb') as f:
-    coord_list = pickle.load(f)
-
-clusters_range = np.arange(2, 4)
-methods_str = ['MiniBatchKMeans', 'KMeans'] #, 'SpectralClustering']
-clustering_methods = list(enumerate(methods_str))
-clustering_quality = [[] for _ in clustering_methods]
-
-for cluster_count in clusters_range:
-    for position, method in clustering_methods:
-        clustering_method = eval(method + '(n_clusters=cluster_count, random_state=42)')
-        clustering_method.fit(coord_list)
-        clustering_quality[position].append(silhouette_score(np.array(coord_list), clustering_method.labels_))
-
-for method_quality in clustering_quality:
-    plt.plot(clusters_range, np.array(method_quality))
-
-plt.xlabel('Number of clusters')
-plt.ylabel('Quality (Silhoette coefficient)')
-plt.legend(methods_str, loc='best')
-plt.savefig('quality.png')
-
-#    for i, patch in enumerate(kmeans.cluster_centers_):
-#        print("Cluster #" + str(i) + ": " + str(patch))
