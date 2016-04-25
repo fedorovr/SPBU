@@ -1,9 +1,9 @@
 import pickle
 from math import radians, cos, sin, asin, sqrt
 
-input_file = 'processed_table'
-output_file = 'filtered_processed_table'
-threshold = 5.0 # km to the stadium
+input_file = 'filtered_processed_table'
+output_file = 'filtered_processed_table_two'
+threshold = 2.0 # km to the stadium
 stadium_coordinates = 30.286389, 59.951944 #longitude and latitude
 
 coord_list = []
@@ -30,7 +30,7 @@ def haversine(lon1, lat1, lon2, lat2):
 
 
 def distance_to_stadium(lon, lat):
-    return haversine(*stadium_coordinates, lon, lat)
+    return haversine(lon, lat, *stadium_coordinates)
 
 removed_path_count = 0
 for path in coord_list:
