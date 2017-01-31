@@ -114,7 +114,7 @@ namespace World
             switch (sex)
             {
                 case Sex.Male:
-                    return maleNames[random.Next(femaleNames.Count)];
+                    return maleNames[random.Next(maleNames.Count)];
                 case Sex.Female:
                     return femaleNames[random.Next(femaleNames.Count)];
                 default:
