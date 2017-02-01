@@ -5,7 +5,7 @@ namespace AdvancedWorld
     [Couple(pair: "Girl", probability: 0.7, childType: "Girl")]
     [Couple(pair: "PrettyGirl", probability: 1.0, childType: "PrettyGirl")]
     [Couple(pair: "SmartGirl", probability: 0.5, childType: "Girl")]
-    class Student : MaleHuman
+    public class Student : MaleHuman
     {
         public String Patronymic { get; }
 

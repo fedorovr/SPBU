@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace AdvancedWorld
 {
@@ -11,10 +10,7 @@ namespace AdvancedWorld
 
         public CoupleAttributeEnumerator(Type humanType)
         {
-            enumerator =
-                (Attribute.GetCustomAttributes(humanType, typeof(CoupleAttribute)) as CoupleAttribute[])
-                //.Where(x => x is CoupleAttribute)
-                .GetEnumerator();
+            enumerator = (Attribute.GetCustomAttributes(humanType, typeof(CoupleAttribute)) as CoupleAttribute[]).GetEnumerator();
         }
 
         public CoupleAttribute Current => (CoupleAttribute)enumerator.Current;

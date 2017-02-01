@@ -2,7 +2,7 @@
 
 namespace AdvancedWorld
 {
-    class ParentsEqualGenderException : ApplicationException
+    public class ParentsEqualGenderException : ApplicationException
     {
     }
 }

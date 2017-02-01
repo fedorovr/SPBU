@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedWorld
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    class CoupleAttribute : Attribute
+    public class CoupleAttribute : Attribute
     {
         public String Pair { get; } 
         public double Probability { get; }

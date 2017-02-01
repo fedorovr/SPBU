@@ -2,9 +2,9 @@
 
 namespace AdvancedWorld
 {
-    enum Sex { Male, Female };
+    public enum Sex { Male, Female };
 
-    abstract class Human : IHasName
+    public abstract class Human : IHasName
     {
         public Sex Sex { get; }
         public String Name { get; }

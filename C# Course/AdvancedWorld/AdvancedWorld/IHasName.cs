@@ -2,7 +2,7 @@
 
 namespace AdvancedWorld
 {
-    interface IHasName
+    public interface IHasName
     {
         String Name { get; }
 

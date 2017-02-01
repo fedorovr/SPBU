@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedWorld
 {
-    class HumanCreator
+    public class HumanCreator
     {
         private static Random random = new Random();
         private static string malePatronymic = "ович";

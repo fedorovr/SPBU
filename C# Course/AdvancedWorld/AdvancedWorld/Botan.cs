@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedWorld
 {
     [Couple(pair: "Girl", probability: 0.7, childType: "SmartGirl")]
     [Couple(pair: "PrettyGirl", probability: 1.0, childType: "PrettyGirl")]
     [Couple(pair: "SmartGirl", probability: 0.8, childType: "Book")]
-    class Botan : MaleHuman
+    public class Botan : MaleHuman
     {
         public String Patronymic { get; }
 

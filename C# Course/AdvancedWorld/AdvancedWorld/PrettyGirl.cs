@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedWorld
 {
     [Couple(pair: "Student", probability: 0.4, childType: "PrettyGirl")]
     [Couple(pair: "Botan", probability: 0.1, childType: "PrettyGirl")]
-    sealed class PrettyGirl : FemaleHuman
+    public sealed class PrettyGirl : FemaleHuman
     {
         public PrettyGirl(String name, int age)
             : base(name, age)
