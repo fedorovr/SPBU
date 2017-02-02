@@ -48,7 +48,7 @@
     <None Include="Script.fsx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\MedvedCS.csproj">
+    <ProjectReference Include="..\MedvedCS\MedvedCS.csproj">
       <Name>MedvedCS</Name>
       <Project>{60ff4063-86d2-4595-87d8-ae25604e54ff}</Project>
       <Private>True</Private>

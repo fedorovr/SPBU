@@ -166,12 +166,15 @@
     <Image Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\MedvedCS.csproj">
+    <ProjectReference Include="..\MedvedCS\MedvedCS.csproj">
       <Project>{60ff4063-86d2-4595-87d8-ae25604e54ff}</Project>
     </ProjectReference>
     <ProjectReference Include="..\MedvedVBasic\MedvedVB.vbproj">
       <Project>{3267a3bf-ccd5-49eb-9ae7-557a2fa2d703}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\CommonStrings.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
