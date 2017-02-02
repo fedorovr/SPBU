@@ -2,7 +2,7 @@
 
 namespace World
 {
-    class CoolParent : Parent
+    internal sealed class CoolParent : Parent
     {
         public int Money { get; }
     

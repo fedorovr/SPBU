@@ -2,9 +2,9 @@
 
 namespace World
 {
-    enum Sex { Male, Female };
+    internal enum Sex { Male, Female };
 
-    abstract class Human
+    internal abstract class Human
     {
         public Sex Sex { get; }
         public String Name { get; }

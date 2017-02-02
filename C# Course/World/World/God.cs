@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace World
 {
-    class God : IGod
+    internal sealed class God : IGod
     {
         private const string malePatronymic = "ович";
         private const string femalePatronymic = "овна";

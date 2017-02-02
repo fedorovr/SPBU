@@ -3,7 +3,7 @@ using System.IO;
 
 namespace World
 {
-    class Program
+    internal sealed class Program
     {
         private const string Description = "There is a God console.";
         private const string Invitation = "Enter a number of humans to create.";

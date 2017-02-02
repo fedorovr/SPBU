@@ -2,7 +2,7 @@
 
 namespace World
 {
-    class Parent : Human
+    internal class Parent : Human
     {
         public int CountOfChildren { get; }
 

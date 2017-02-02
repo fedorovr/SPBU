@@ -1,6 +1,6 @@
 ﻿namespace World
 {
-    interface IGod
+    internal interface IGod
     {
         Human CreateHuman();
         Human CreateHuman(Sex sex);

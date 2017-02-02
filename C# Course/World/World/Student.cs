@@ -2,7 +2,7 @@
 
 namespace World
 {
-    class Student : Human
+    internal class Student : Human
     {
         public String Patronymic { get; }
 

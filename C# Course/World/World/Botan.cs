@@ -2,7 +2,7 @@
 
 namespace World
 {
-    class Botan : Student
+    internal sealed class Botan : Student
     {
         public double AverageMark { get; }
 
