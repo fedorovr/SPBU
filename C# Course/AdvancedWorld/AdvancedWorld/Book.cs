@@ -2,7 +2,7 @@
 
 namespace AdvancedWorld
 {
-    public class Book : IHasName
+    public sealed class Book : IHasName
     {
         public Book(String name)
         {

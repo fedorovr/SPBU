@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AdvancedWorld
 {
-    public class HumanCreator
+    public static class HumanCreator
     {
         private static Random random = new Random();
         private static string malePatronymic = "ович";

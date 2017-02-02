@@ -4,7 +4,7 @@ namespace AdvancedWorld
 {
     [Couple(pair: "Student", probability: 0.7, childType: "Girl")]
     [Couple(pair: "Botan", probability: 0.3, childType: "SmartGirl")]
-    public class Girl : FemaleHuman
+    public sealed class Girl : FemaleHuman
     {
         public Girl(String name, int age)
             : base(name, age)

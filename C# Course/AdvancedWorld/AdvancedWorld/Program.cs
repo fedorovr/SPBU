@@ -2,7 +2,7 @@
 
 namespace AdvancedWorld
 {
-    class Program
+    internal sealed class Program
     {
         private const string Description = "There is a God console.";
         private const string Invitation = "Press Enter to create new couple or Q\\F10 to exit.";

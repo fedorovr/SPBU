@@ -2,7 +2,7 @@
 
 namespace AdvancedWorld
 {
-    public class HumanMatcher
+    public static class HumanMatcher
     {
         private static Random random = new Random();
 

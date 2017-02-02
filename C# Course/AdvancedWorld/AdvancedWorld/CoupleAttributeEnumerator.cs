@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AdvancedWorld
 {
-    class CoupleAttributeEnumerator : IEnumerator<CoupleAttribute>
+    internal sealed class CoupleAttributeEnumerator : IEnumerator<CoupleAttribute>
     {
         private IEnumerator enumerator;
 

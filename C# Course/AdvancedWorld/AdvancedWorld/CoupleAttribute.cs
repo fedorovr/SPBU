@@ -3,7 +3,7 @@
 namespace AdvancedWorld
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class CoupleAttribute : Attribute
+    public sealed class CoupleAttribute : Attribute
     {
         public String Pair { get; } 
         public double Probability { get; }
