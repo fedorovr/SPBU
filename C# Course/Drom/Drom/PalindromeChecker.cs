@@ -1,24 +1,27 @@
 ﻿namespace Drom
 {
-    class PalindromeChecker
+    public static class PalindromeChecker
     {
         private const string IgnoredCharacters = " _,.:;!?-()\"\'";
-        public static bool IsPalindrome(string str)
+        public static bool IsPalindrome(string candidateForPalindrome)
         {
-            str = str.ToLower();
+            if (candidateForPalindrome == null)
+            {
+                throw new System.ArgumentException("Unable to determine is null string a palindrome.");
+            }
             var leftIndex = 0;
-            var rightIndex = str.Length - 1;
+            var rightIndex = candidateForPalindrome.Length - 1;
             while (leftIndex <= rightIndex)
             {
-                if (IsDelimiter(str[leftIndex]))
+                if (IsDelimiter(candidateForPalindrome[leftIndex]))
                 {
                     leftIndex++;
                 }
-                else if (IsDelimiter(str[rightIndex]))
+                else if (IsDelimiter(candidateForPalindrome[rightIndex]))
                 {
                     rightIndex--;
                 }
-                else if (str[leftIndex] != str[rightIndex])
+                else if (char.ToLower(candidateForPalindrome[leftIndex]) != char.ToLower(candidateForPalindrome[rightIndex]))
                 {
                     return false;
                 }
